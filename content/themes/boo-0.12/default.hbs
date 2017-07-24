@@ -34,6 +34,16 @@
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
 
+        {{!-- Email subscribe form at the bottom of the page --}}
+        {{#if @labs.subscribers}}
+        <section class="gh-subscribe mainpage-subscribe">
+            <h3 class="gh-subscribe-title">Subscribe to Soundcircle</h3>
+            <p>Get the latest news from Soundcircle.</p>
+            {{subscribe_form placeholder="Your email address"}}
+            <span class="gh-subscribe-rss">or subscribe <a href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">via RSS</a> with Feedly!</span>
+        </section>
+        {{/if}}
+
         {{!-- The tiny footer at the very bottom --}}
         <footer class="site-footer clearfix">
             <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
